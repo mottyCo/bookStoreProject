@@ -1,3 +1,7 @@
+:host{
+    position: absolute;
+    top: 0;
+}
 .header-section{
     width: 100vw;
     min-height: 4rem;
