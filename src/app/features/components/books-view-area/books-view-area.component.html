@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="search-bar">
+        <input type="text" placeholder="search" (input)="onTypeSearchBar($event)">
+    </div>
+    <div class="filters-section">
+        <div class="dropdown">
+            <button class="dropbtn">sort by</button>
+            <div class="dropdown-content">
+              <a (click)="sortA2ZbookName()">a - z book name</a>
+              <a (click)="sortZ2AbookName()">z - a book name</a>
+              <a (click)="sortA2ZauthorName()">a - z author name</a>
+              <a (click)="sortZ2AauthorName()">z - a author name</a>
+              <a (click)="sortByPriceLowToHigh()">lowest price</a>
+              <a (click)="sortByPriceHighToLow()">highest price</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">filter</button>
+            <div class="dropdown-content">
+              <a (click)="displayDiscountOnly()">with discount</a>
+              <a (click)="displayFullPriceBooksOnly()">without discount</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">category</button>
+            <div class="dropdown-content">
+              <a *ngFor="let category of booksCategories" (click)="showBooksCategory(category)">{{category.name}}</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="books-section">
+        <app-book-info *ngFor="let book of booksToDisplay" [bookName]="book.name" [author]="book.author" [price]="book.price" [discount]="book.discountByPrecent"></app-book-info>
+    </div>
+</div>

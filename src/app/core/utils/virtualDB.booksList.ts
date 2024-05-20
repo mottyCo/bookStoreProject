@@ -1,5 +1,10 @@
 import { BooksCategories } from "../models/booksCategories";
 import { Book } from "../models/bookInterface";
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+  })
 
 export class VirtualDB{
     categories = [
@@ -11,10 +16,10 @@ export class VirtualDB{
     books!: Book[]
     constructor(){
         this.books = [
-            new Book('Beautiful Disaster', 90,'Jamie McGuire','none', this.categories[0]),
+            new Book('Beautiful Disaster', 90,'Jamie McGuire','none', this.categories[0], 20),
             new Book('Fifty Shades of Grey', 88,'E.L. James','none', this.categories[1]),
             new Book('Hopeless', 70,' Colleen Hoover','none', this.categories[2]),
-            new Book('The Fault in Our Stars', 50,' John Green','none', this.categories[3]),
+            new Book('The Fault in Our Stars', 50,' John Green','none', this.categories[3],30),
             new Book('Divergent', 64,' Veronica Roth','none', this.categories[0]),
             new Book('Slammed', 88,'Colleen Hoover ','none', this.categories[1]),
             new Book('Effortless', 100,' S.C. Stephens','none', this.categories[2]),
@@ -92,7 +97,7 @@ export class VirtualDB{
             new Book('Shatter Me', 98,'Tahereh Mafi','none', this.categories[2]),
             new Book('On the Island', 95,'Tracey Garvis Graves','none', this.categories[3]),
             new Book('Just for Now', 93,'Abbi Glines','none', this.categories[0]),
-            new Book('The Vincent Brothers', 91,'','none', this.categories[1]),
+            new Book('The Vincent Brothers', 91,'Abbi Glines','none', this.categories[1]),
             new Book('Naked', 89,'Raine Miller','none', this.categories[2]),
             new Book('Clockwork Prince', 87,' Cassandra Clare','none', this.categories[3]),
             new Book('Dark Lover', 85,'J.R. Ward','none', this.categories[0]),

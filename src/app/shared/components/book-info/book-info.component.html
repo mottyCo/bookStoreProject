@@ -1,10 +1,12 @@
 <div class="mobile-container">
     <div class="img-area">
+        <img *ngIf="priceAfterDiscount != null" class="sale-tag" src="../../../../assets/images/saleTag.png" alt="">
         <img src="../../../../assets/images/book-icon.jpeg" alt="">
     </div> 
     <p class="book-name">{{ bookName }} </p> 
     <p class="author-name">{{ author}} </p>
-    <p class="price">{{ price }}₪</p>
+    <p  [ngClass]="priceAfterDiscount != null ? 'full-price' : 'price'">{{ price }}₪</p>
+     <p *ngIf="priceAfterDiscount != null" class="discount-price">{{ priceAfterDiscount }}₪</p>
     <div class="buttons-area">
         <button>add to cart</button>
         <button>add to favorite</button>
@@ -17,7 +19,8 @@
                 <p class="book-name">{{ bookName }} </p> 
                 <p class="author-name">{{ author}} </p>
             </div>
-        <p class="price">{{ price }}₪</p>
+        <p [ngClass]="priceAfterDiscount != null ? 'full-price' : 'price'">{{ price }}₪</p>
+        <p *ngIf="priceAfterDiscount != null" class="discount-price">{{ priceAfterDiscount }}₪</p>
         </div>
         <div class="buttons-area">
             <button>add to cart</button>
@@ -26,6 +29,7 @@
     </div>
     
     <div class="img-area">
+        <img *ngIf="priceAfterDiscount != null" class="sale-tag" src="../../../../assets/images/saleTag.png" alt="">
         <img src="../../../../assets/images/book-icon.jpeg" alt="">
     </div> 
     

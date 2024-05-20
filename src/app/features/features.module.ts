@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { SharedModule } from '../shared/shared.module';
+import { BooksViewAreaComponent } from './components/books-view-area/books-view-area.component';
 
 
 
@@ -12,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     FooterComponent,
     MainPageComponent,
+    BooksViewAreaComponent,
 
   ],
   imports: [
@@ -22,6 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     FooterComponent,
     MainPageComponent,
+    BooksViewAreaComponent,
   ]
 })
 export class FeaturesModule { }
