@@ -1,0 +1,16 @@
+<div class="form-contaner">
+    <h4>log in</h4>
+    <div class="inputs-container">
+        <form [formGroup]="loginForm">
+            <label for="email" >e-mail</label>
+            <input type="email" placeholder="e-mail" name="email" formControlName="Email" [ngClass]="{'red-border': (email.touched && email.invalid) || (submitClicked )}">
+            <label for="password">password</label>
+            <input type="password" placeholder="password" name="password" formControlName="Password" [ngClass]="{'red-border': (password.touched && password.invalid) || (submitClicked)}">
+        </form>
+        
+    </div>
+    <button (click)="onSubmit()">log in</button>
+    <p>not sign up yet? <a (click)="navigateToSignup()">sign up</a></p>
+    
+</div>
+<router-outlet/>

@@ -5,7 +5,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { BooksViewAreaComponent } from './components/books-view-area/books-view-area.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { User } from '../core/models/user.interface';
 
 
 @NgModule({
@@ -14,17 +19,25 @@ import { BooksViewAreaComponent } from './components/books-view-area/books-view-
     FooterComponent,
     MainPageComponent,
     BooksViewAreaComponent,
-
+    LoginComponent,
+    SignUpComponent,
+    LogoutComponent,
+    
   ],
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     MainPageComponent,
     BooksViewAreaComponent,
-  ]
+  
+  ],
 })
 export class FeaturesModule { }
