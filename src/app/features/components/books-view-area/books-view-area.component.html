@@ -30,6 +30,6 @@
         </div>
     </div>
     <div class="books-section">
-        <app-book-info *ngFor="let book of booksToDisplay" [bookName]="book.name" [author]="book.author" [price]="book.price" [discount]="book.discountByPrecent"></app-book-info>
+        <app-book-info *ngFor="let book of booksToDisplay" [book]="book"></app-book-info>
     </div>
 </div>

@@ -1,0 +1,5 @@
+<h2>hi {{ user?.firstName }}</h2>
+<app-book-info *ngFor="let book of user?.cart" [book]="book"></app-book-info>
+<h4 *ngIf="totalPrice !== 0">total : {{ totalPrice }} </h4>
+<h4 *ngIf="totalPrice === 0">nothing in the cart</h4>
+<button *ngIf="totalPrice !== 0" (click)="resetCart()">buy</button>

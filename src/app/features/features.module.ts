@@ -11,6 +11,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../core/models/user.interface';
+import { FavoritesBooksPageComponent } from './components/favorites-books-page/favorites-books-page.component';
+import { CartPageComponent } from './components/cart-page/cart-page.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { User } from '../core/models/user.interface';
     LoginComponent,
     SignUpComponent,
     LogoutComponent,
+    FavoritesBooksPageComponent,
+    CartPageComponent,
     
   ],
   imports: [
