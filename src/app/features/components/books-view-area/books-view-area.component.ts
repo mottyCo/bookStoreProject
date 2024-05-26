@@ -9,50 +9,85 @@ import { BooksCategories } from '../../../core/models/booksCategories';
   styleUrl: './books-view-area.component.css'
 })
 export class BooksViewAreaComponent {
+  correctPage : number = 0
   booksToDisplay : Book[]| undefined
+  booksCollection : Book[]| undefined
+  booksToDisplayInPages! : Book[][]
   booksCategories! : BooksCategories[]
   constructor(private booksService : BooksListToHomePageService){
-    this.booksToDisplay = booksService.getAllBooks()
+    this.booksCollection = booksService.getAllBooks()
     this.booksCategories = booksService.categories
- 
+    this.setBooksToDisplayIntoPages()
   }
 
   onTypeSearchBar(event : any){
     const searchText:string = event?.target.value;
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.getBookMatchToSearch(this.booksService.getAllBooks(), searchText)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.getBookMatchToSearch(this.booksService.getAllBooks(), searchText)
+    this.setBooksToDisplayIntoPages()
   }
   sortA2ZbookName(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByBookNameA2Z(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByBookNameA2Z(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   sortZ2AbookName(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByBookNameZ2A(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByBookNameZ2A(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   sortA2ZauthorName(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByAuthorNameA2Z(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByAuthorNameA2Z(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   sortZ2AauthorName(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByAuthorNameZ2A(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByAuthorNameZ2A(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   sortByPriceHighToLow(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByPriceHighToLow(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByPriceHighToLow(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   sortByPriceLowToHigh(){
-    if(this.booksToDisplay != undefined)
-      this.booksToDisplay = this.booksService.sortByPriceLowToHigh(this.booksToDisplay)
+    if(this.booksCollection != undefined)
+      this.booksCollection = this.booksService.sortByPriceLowToHigh(this.booksCollection)
+    this.setBooksToDisplayIntoPages()
   }
   showBooksCategory(category : BooksCategories){
-    this.booksToDisplay = this.booksService.showBooksCategory(category)
+    this.booksCollection = this.booksService.showBooksCategory(category)
+    this.setBooksToDisplayIntoPages()
   }
   displayDiscountOnly(){
-    this.booksToDisplay = this.booksService.displayDiscountOnly()
+    this.booksCollection = this.booksService.displayDiscountOnly()
+    this.setBooksToDisplayIntoPages()
   }
   displayFullPriceBooksOnly(){
-    this.booksToDisplay = this.booksService.displayFullPriceOnly()
+    this.booksCollection = this.booksService.displayFullPriceOnly()
+    this.setBooksToDisplayIntoPages()
+  }
+  setBooksToDisplayIntoPages(){
+    this.booksToDisplayInPages = [[]]
+    if(this.booksCollection){
+      let counter = 0
+      let pageNumber = 0
+      for(let book of this.booksCollection){
+        if(counter === 8){
+          pageNumber++
+          counter = 0
+          this.booksToDisplayInPages.push([])
+        }  
+        this.booksToDisplayInPages[pageNumber].push(book)
+        counter++
+      }
+    }
+    this.booksToDisplay = this.booksToDisplayInPages[0]
+    
+  }
+  displayPage(i : number){
+    this.booksToDisplay = this.booksToDisplayInPages[i]
+    this.correctPage = i
   }
 }

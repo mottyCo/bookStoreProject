@@ -83,3 +83,16 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+  .pagination-navigation{
+    display: flex;
+    margin: 0.7rem auto;
+    gap: 5px;
+  }
+  .pagination-navigation > div{
+    padding: 5px;
+    border: 1px solid black;
+  }
+  .correct-page{
+    background-color: #3e8e41;
+    color: white;
+  }
