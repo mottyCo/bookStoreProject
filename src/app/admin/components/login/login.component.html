@@ -1,0 +1,14 @@
+<div class="form-contaner">
+  <h4>admin - login</h4>
+  <div class="inputs-container">
+      <form [formGroup]="loginForm">
+          <label for="name" >name</label>
+          <input type="text" placeholder="name" name="name" formControlName="Name" [ngClass]="{'red-border': (name.touched && name.invalid) || (submitClicked )}">
+          <label for="password">password</label>
+          <input type="password" placeholder="password" name="password" formControlName="Password" [ngClass]="{'red-border': (password.touched && password.invalid) || (submitClicked)}">
+      </form>
+
+  </div>
+  <button (click)="onSubmit()">log in</button>
+</div>
+

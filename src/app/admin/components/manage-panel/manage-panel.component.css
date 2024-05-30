@@ -1,0 +1,37 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.container > button{
+  display: block;
+  height: 4rem;
+  width: 80%;
+  margin-top: 2rem;
+  background-color: black;
+  color: white;
+  border: 5px solid black;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.container > button:hover{
+  background-color: white;
+  color: black;
+}
+@media screen and (min-width: 800px){
+  .container{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .container > button{
+    width: 45%;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1000px){
+  .container > button{
+    font-size: 2rem;
+  }
+}
