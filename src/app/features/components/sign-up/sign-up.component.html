@@ -4,20 +4,24 @@
         <form [formGroup]="signupForm">
             <label for="firstName">first name</label>
             <input type="text" placeholder="first name" name="firstName" formControlName="FirstName" [ngClass]="{'red-border': (firstName.touched && firstName.invalid) || (submitClicked && firstName.invalid)}">
+            <p class="invalid-message" *ngIf="(firstName.touched && firstName.invalid) || (submitClicked && firstName.invalid)">{{ firstNameValidatorMessage() }}</p>
             <label for="lastName">last name</label>
             <input type="text" placeholder="last name" name="lastName" formControlName="LastName" [ngClass]="{'red-border': (lastName.touched && lastName.invalid) || (submitClicked && lastName.invalid)}">
+            <p class="invalid-message" *ngIf="(lastName.touched && lastName.invalid) || (submitClicked && lastName.invalid)">{{ lastNameValidatorMessage() }}</p>
             <label for="email">e-mail</label>
             <input type="email" placeholder="e-mail" name="email" formControlName="Email" [ngClass]="{'red-border': (email.touched && email.invalid) || (submitClicked && email.invalid)}">
+            <p class="invalid-message" *ngIf="(email.touched && email.invalid) || (submitClicked && email.invalid)">{{ emailValidatorMessage() }}</p>
             <label for="address">address</label>
             <input type="text" placeholder="address" name="address" formControlName="Address" [ngClass]="{'red-border': (address.touched && address.invalid) || (submitClicked && address.invalid)}">
+            <p class="invalid-message" *ngIf="(address.touched && address.invalid) || (submitClicked && address.invalid)">{{ addressValidatorMessage() }}</p>
             <label for="password">password</label>
             <input type="password" placeholder="password" name="password" formControlName="Password" [ngClass]="{'red-border': (password.touched && password.invalid) || (submitClicked && password.invalid)}">
+            <p class="invalid-message" *ngIf="(password.touched && password.invalid) || (submitClicked && password.invalid)">{{ passwordValidatorMessage() }}</p>
             <label for="repaetPassword">repaet password</label>
             <input type="password" placeholder="repaet password" name="repaetPassword" formControlName="RepeatPassword" [ngClass]="{'red-border': (repeatPassword.touched && repeatPassword.invalid) || (submitClicked && repeatPassword.invalid)}">
+            <p class="invalid-message" *ngIf="(repeatPassword.touched && repeatPassword.invalid) || (submitClicked && repeatPassword.invalid)">{{ repeatPasswordValidatorMessage() }}</p>
         </form>
-        
     </div>
     <button (click)="onSubmit()">sign up</button>
     <p>already sign up? <a (click)="navigateToLogin()">login</a></p>
-    
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CorrectUserService } from '../../../core/services/correct-user.service';
+import { CurrentUserService } from '../../../core/services/currect-user.service';
 import { User } from '../../../core/models/user.interface';
 import { UsersService } from '../../services/users.service';
 
@@ -10,8 +10,8 @@ import { UsersService } from '../../services/users.service';
 })
 export class LogoutComponent {
   loggedUser!: User | null
-  constructor(private correctUser : CorrectUserService, private usersService : UsersService){
-    this.loggedUser = correctUser.user
+  constructor(private currentUser : CurrentUserService, private usersService : UsersService){
+    this.loggedUser = currentUser.user
   }
   logOut(){
     this.usersService.logOut(this.loggedUser)

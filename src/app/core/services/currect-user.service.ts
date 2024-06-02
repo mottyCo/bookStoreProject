@@ -9,14 +9,14 @@ import { BooksCategories } from '../models/booksCategories';
 @Injectable({
   providedIn: 'root'
 })
-export class CorrectUserService {
+export class CurrentUserService {
   user: User | null = null
-  constructor(private usersDB : VirtualUsersDB) { 
+  constructor(private usersDB : VirtualUsersDB) {
     this.user = usersDB.users[0]
   }
   totalCartPrice : number = 0
   totalPriceUpdator = new BehaviorSubject(0);
-  
+
   updateTotalPrice(){
     let newTotalPrice  = 0
     if(this.user?.cart){
@@ -26,7 +26,7 @@ export class CorrectUserService {
         }else{
           newTotalPrice += book.price
         }
-        
+
       }
     }
     this.totalCartPrice = newTotalPrice
@@ -35,6 +35,6 @@ export class CorrectUserService {
   resetCart(){
     this.totalPriceUpdator.next(0)
     if(this.user)
-      this.user.cart = [] 
+      this.user.cart = []
   }
 }

@@ -33,6 +33,6 @@
         <app-book-info *ngFor="let book of booksToDisplay" [book]="book"></app-book-info>
     </div>
     <div class="pagination-navigation">
-        <div *ngFor="let page of booksToDisplayInPages, let i = index" (click)="displayPage(i)" [ngClass]="{'correct-page': correctPage === i}"> {{ i + 1}} </div>
+        <div *ngFor="let page of booksToDisplayInPages, let i = index" (click)="displayPage(i)" [ngClass]="{'correct-page': currentPage === i}"> {{ i + 1}} </div>
     </div>
 </div>

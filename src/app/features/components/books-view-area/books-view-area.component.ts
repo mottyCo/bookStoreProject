@@ -9,7 +9,7 @@ import { BooksCategories } from '../../../core/models/booksCategories';
   styleUrl: './books-view-area.component.css'
 })
 export class BooksViewAreaComponent {
-  correctPage : number = 0
+  currentPage : number = 0
   booksToDisplay : Book[]| undefined
   booksCollection : Book[]| undefined
   booksToDisplayInPages! : Book[][]
@@ -84,10 +84,10 @@ export class BooksViewAreaComponent {
       }
     }
     this.booksToDisplay = this.booksToDisplayInPages[0]
-    
+    this.currentPage = 0
   }
   displayPage(i : number){
     this.booksToDisplay = this.booksToDisplayInPages[i]
-    this.correctPage = i
+    this.currentPage = i
   }
 }

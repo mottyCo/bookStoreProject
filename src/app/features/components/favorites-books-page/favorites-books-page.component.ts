@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CorrectUserService } from '../../../core/services/correct-user.service';
+import { CurrentUserService } from '../../../core/services/currect-user.service';
 import { User } from '../../../core/models/user.interface';
 
 @Component({
@@ -9,7 +9,7 @@ import { User } from '../../../core/models/user.interface';
 })
 export class FavoritesBooksPageComponent {
   user!: User | null
-  constructor(private correctUser : CorrectUserService){
-    this.user = correctUser.user
+  constructor(private currentUser : CurrentUserService){
+    this.user = currentUser.user
   }
 }

@@ -9,16 +9,26 @@ import { loginGuard} from './core/guards/user.guard';
 import { logoutGuard } from './core/guards/logout.guard';
 import { FavoritesBooksPageComponent } from './features/components/favorites-books-page/favorites-books-page.component';
 import { CartPageComponent } from './features/components/cart-page/cart-page.component';
+import { adminLoginGuard } from './admin/guards/admin-login.guard';
+import { AdminLoginComponent } from './admin/components/login/login.component';
+import { ManagePanelComponent } from './admin/components/manage-panel/manage-panel.component';
 
 const routes: Routes = [
+  {path: 'test', component: ManagePanelComponent},
   {path: 'home', component: BooksViewAreaComponent, },
   {path: 'login', component: LoginComponent,pathMatch: 'full', canActivate: [loginGuard]},
   {path: 'signup', component: SignUpComponent, canActivate: [loginGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [logoutGuard]},
   {path: 'favorite' , component: FavoritesBooksPageComponent, canActivate: [logoutGuard]},
   {path: 'cart', component: CartPageComponent, canActivate: [logoutGuard]},
+  {path: 'admin/login', component: AdminLoginComponent, pathMatch: 'full'},
+  {path: 'admin', canActivate: [adminLoginGuard], children: [
+    {path: 'login', component: AdminLoginComponent},
+    {path: 'managePanel', component: ManagePanelComponent},
+  ]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
+
 ];
 
 @NgModule({

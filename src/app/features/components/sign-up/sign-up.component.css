@@ -61,3 +61,8 @@ a{
 .red-border{
     outline: 2px solid red;
 }
+form p{
+  margin: 0;
+  color: red;
+  align-self: flex-start;
+}

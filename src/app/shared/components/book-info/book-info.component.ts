@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from '../../../core/models/bookInterface';
 import { UsersService } from '../../../features/services/users.service';
-import { CorrectUserService } from '../../../core/services/correct-user.service';
+import { CurrentUserService } from '../../../core/services/currect-user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,20 +13,20 @@ export class BookInfoComponent implements OnInit {
   @Input() book!: Book
 
 
-  priceAfterDiscount! : number | null 
-  constructor(private usersService : UsersService, public correctUser : CorrectUserService, private router : Router){
+  priceAfterDiscount! : number | null
+  constructor(private usersService : UsersService, public currentUser : CurrentUserService, private router : Router){
 
   }
   addToCart(){
-    if(this.correctUser.user){
+    if(this.currentUser.user){
       this.usersService.addBookToCart(this.book)
-      this.correctUser.updateTotalPrice()
+      this.currentUser.updateTotalPrice()
     }else{
       this.router.navigate(['login'])
     }
   }
   addToFavorite(){
-    if(this.correctUser.user){
+    if(this.currentUser.user){
       this.usersService.addBookToFavorite(this.book)
     }else{
       this.router.navigate(['login'])
@@ -35,7 +35,7 @@ export class BookInfoComponent implements OnInit {
   }
   removeFromCart(){
     this.usersService.removeBookFromCart(this.book)
-    this.correctUser.updateTotalPrice()
+    this.currentUser.updateTotalPrice()
   }
   removeFromFavorite(){
     this.usersService.removeBookFromFavorite(this.book)

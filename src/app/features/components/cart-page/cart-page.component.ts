@@ -1,6 +1,6 @@
 import { Component,} from '@angular/core';
 import { User } from '../../../core/models/user.interface';
-import { CorrectUserService } from '../../../core/services/correct-user.service';
+import { CurrentUserService } from '../../../core/services/currect-user.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -10,14 +10,14 @@ import { CorrectUserService } from '../../../core/services/correct-user.service'
 export class CartPageComponent {
   user!: User| null
   totalPrice : number = 0
-  constructor(private correctUser : CorrectUserService){
-    this.user = correctUser.user
-    correctUser.totalPriceUpdator.subscribe(value => {
+  constructor(private currentUser : CurrentUserService){
+    this.user = currentUser.user
+    currentUser.totalPriceUpdator.subscribe(value => {
       this.totalPrice = value
     })
   }
   resetCart(){
-    this.correctUser.resetCart()
+    this.currentUser.resetCart()
   }
 
 
