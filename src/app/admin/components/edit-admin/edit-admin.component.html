@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="title">edit admin</h2>
+  <hr/>
+  <p>new admin user name</p>
+  <input type="text" [(ngModel)]="userName">
+  <p>new admin password</p>
+  <input type="text" [(ngModel)]="password">
+  <button (click)="onSubmit()">submit</button>
+</div>
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>

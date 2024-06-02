@@ -12,6 +12,10 @@ import { CartPageComponent } from './features/components/cart-page/cart-page.com
 import { adminLoginGuard } from './admin/guards/admin-login.guard';
 import { AdminLoginComponent } from './admin/components/login/login.component';
 import { ManagePanelComponent } from './admin/components/manage-panel/manage-panel.component';
+import { EditAdminComponent } from './admin/components/edit-admin/edit-admin.component';
+import { EditUsersComponent } from './admin/components/edit-users/edit-users.component';
+import { EditBooksComponent } from './admin/components/edit-books/edit-books.component';
+import { EditDiscountsComponent } from './admin/components/edit-discounts/edit-discounts.component';
 
 const routes: Routes = [
   {path: 'test', component: ManagePanelComponent},
@@ -24,7 +28,11 @@ const routes: Routes = [
   {path: 'admin/login', component: AdminLoginComponent, pathMatch: 'full'},
   {path: 'admin', canActivate: [adminLoginGuard], children: [
     {path: 'login', component: AdminLoginComponent},
-    {path: 'managePanel', component: ManagePanelComponent},
+    {path: 'managePanel',  component: ManagePanelComponent,},
+    {path: 'editAdmin' , component: EditAdminComponent},
+    {path: 'editUsers', component: EditUsersComponent},
+    {path: 'editBooks', component: EditBooksComponent},
+    {path: 'editDiscounts', component: EditDiscountsComponent}
   ]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
