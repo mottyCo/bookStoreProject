@@ -1,1 +1,10 @@
-<p>edit-discounts works!</p>
+<div class="container">
+  <h2 class="title">edit discounts</h2>
+  <hr/>
+  <p>discount precent for all books</p>
+  <input type="number" [(ngModel)]="discount">
+  <button (click)="addDiscount()">add discout for all books</button>
+  <hr/>
+  <button (click)="removeDiscount()">remove discount from all books</button>
+</div>
+
