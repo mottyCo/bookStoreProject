@@ -1,0 +1,19 @@
+<div class="form">
+  <h3>{{ title }} </h3>
+  <p>book name</p>
+  <input type="text" placeholder="book name" [(ngModel)]="bookName">
+  <p>author name</p>
+  <input type="text" placeholder="author" [(ngModel)]="author">
+  <p>category</p>
+  <select name="categories" id="" [(ngModel)]="bookCategory">
+    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+  </select>
+  <p>price</p>
+  <input type="number" placeholder="price" [(ngModel)]="price">
+  <p>discount by precent</p>
+  <input type="text" placeholder="discount by precent" [(ngModel)]="discountByPrecent">
+  <button (click)="onSubmit()">submit</button>
+</div>
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>

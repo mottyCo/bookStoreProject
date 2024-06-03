@@ -1,0 +1,12 @@
+<div class="form">
+  <h3>{{ title }} </h3>
+  <input type="text" placeholder="first name" [(ngModel)]="firstName">
+  <input type="text" placeholder="last name" [(ngModel)]="lastName">
+  <input type="text" placeholder="email" [(ngModel)]="email">
+  <input type="text" placeholder="address" [(ngModel)]="address">
+  <input type="text" placeholder="password" [(ngModel)]="password">
+  <button (click)="onSubmit()">submit</button>
+</div>
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>

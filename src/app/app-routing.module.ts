@@ -16,23 +16,30 @@ import { EditAdminComponent } from './admin/components/edit-admin/edit-admin.com
 import { EditUsersComponent } from './admin/components/edit-users/edit-users.component';
 import { EditBooksComponent } from './admin/components/edit-books/edit-books.component';
 import { EditDiscountsComponent } from './admin/components/edit-discounts/edit-discounts.component';
+import { EditUserModalComponent } from './admin/components/edit-user-modal/edit-user-modal.component';
+import { MainAdminComponent } from './admin/components/main-admin/main-admin.component';
+import { EditBookModalComponent } from './admin/components/edit-book-modal/edit-book-modal.component';
 
 const routes: Routes = [
-  {path: 'test', component: ManagePanelComponent},
+
+  {path: 'test', component: ManagePanelComponent, pathMatch: 'prefix'},
   {path: 'home', component: BooksViewAreaComponent, },
+
   {path: 'login', component: LoginComponent,pathMatch: 'full', canActivate: [loginGuard]},
   {path: 'signup', component: SignUpComponent, canActivate: [loginGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [logoutGuard]},
   {path: 'favorite' , component: FavoritesBooksPageComponent, canActivate: [logoutGuard]},
   {path: 'cart', component: CartPageComponent, canActivate: [logoutGuard]},
   {path: 'admin/login', component: AdminLoginComponent, pathMatch: 'full'},
-  {path: 'admin', canActivate: [adminLoginGuard], children: [
+  {path: 'admin', canActivate: [adminLoginGuard],component: MainAdminComponent, children: [
     {path: 'login', component: AdminLoginComponent},
     {path: 'managePanel',  component: ManagePanelComponent,},
     {path: 'editAdmin' , component: EditAdminComponent},
+    {path: 'editUser', component: EditUserModalComponent},
     {path: 'editUsers', component: EditUsersComponent},
+    {path: 'editBook', component: EditBookModalComponent},
     {path: 'editBooks', component: EditBooksComponent},
-    {path: 'editDiscounts', component: EditDiscountsComponent}
+    {path: 'editDiscounts', component: EditDiscountsComponent},
   ]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

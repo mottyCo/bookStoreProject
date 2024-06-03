@@ -16,7 +16,7 @@ export class Book implements Ibook{
     imageUrl!: string
     category!: BooksCategories
     discountByPrecent!: number | null
-    constructor(name : string, price : number, author: string, imageUrl : string, category: BooksCategories, discountByPrecent?: number ){
+    constructor(name : string, price : number, author: string, imageUrl : string, category: BooksCategories, discountByPrecent?: number | null){
         this.name = name;
         this.price = price;
         this.author = author;

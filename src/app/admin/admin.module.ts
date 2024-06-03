@@ -13,6 +13,9 @@ import { EditBooksService } from './services/edit-books.service';
 import { EditDiscountsService } from './services/edit-discounts.service';
 import { EditUsersService } from './services/edit-users.service';
 import { RouterModule } from '@angular/router';
+import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
+import { MainAdminComponent } from './components/main-admin/main-admin.component';
+import { EditBookModalComponent } from './components/edit-book-modal/edit-book-modal.component';
 
 
 
@@ -23,7 +26,10 @@ import { RouterModule } from '@angular/router';
     EditAdminComponent,
     EditUsersComponent,
     EditBooksComponent,
-    EditDiscountsComponent
+    EditDiscountsComponent,
+    EditUserModalComponent,
+    MainAdminComponent,
+    EditBookModalComponent
   ],
   imports: [
     CommonModule,

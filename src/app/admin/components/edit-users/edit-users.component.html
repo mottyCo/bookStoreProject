@@ -1,1 +1,24 @@
-<p>edit-users works!</p>
+<div class="container">
+  <h2 class="title">edit users</h2>
+  <hr/>
+  <button (click)="deleteAllUsers()">delete all users</button>
+  <button [routerLink]="'/admin/editUser'">add User</button>
+  <hr>
+  <h2>user</h2>
+  <input type="text" placeholder="search" (input)="filterUsers($event)">
+  <div class="user" *ngFor="let user of users">
+    <p>first name: {{ user.firstName }}</p>
+    <p>last name: {{ user.lastName }}</p>
+    <p>email: {{ user.email }}</p>
+    <p>address: {{ user.address }}</p>
+    <p>password: {{ user.password }}</p>
+    <div class="edit-user-section">
+      <button (click)="editUser(user)">edit user</button>
+      <button (click)="deleteUser(user)">delete user</button>
+    </div>
+  </div>
+</div>
+
+
+
+

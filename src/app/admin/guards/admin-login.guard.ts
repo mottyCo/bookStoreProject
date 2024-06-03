@@ -6,9 +6,10 @@ export const adminLoginGuard: CanActivateFn = (route, state) => {
   const service = inject(AdminService)
   const router = inject(Router)
 
+
   if(service.isAdminLogedIn)
     return true
-
+  console.log('here');
   return router.createUrlTree(['admin/login'])
 
 };

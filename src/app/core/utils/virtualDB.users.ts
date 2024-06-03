@@ -14,7 +14,12 @@ export class VirtualUsersDB{
         },
     ]
     users = [
-        new User('someone1', 'somehow1', 'a@a', 'tel aviv', 'Aa1234567'),
-        new User('someone2', 'somehow2', 'b@b', 'tel aviv', 'Aa1234567'),
+        new User('AAAA', 'aaaa', 'a@a', 'tel aviv', 'Aa1234567'),
+        new User('BBBB', 'bbbb', 'b@b', 'tel aviv', 'Aa1234567'),
+        new User('CCCC', 'cccc', 'c@c', 'tel aviv', 'Aa1234567'),
+        new User('DDDD', 'dddd', 'd@d', 'tel aviv', 'Aa1234567'),
+        new User('EEEE', 'eeee', 'e@e', 'tel aviv', 'Aa1234567'),
+        new User('FFFF', 'ffff', 'f@f', 'tel aviv', 'Aa1234567'),
+        new User('GGGG', 'gggg', 'g@g', 'tel aviv', 'Aa1234567'),
     ]
 }

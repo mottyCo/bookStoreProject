@@ -1,1 +1,20 @@
-<p>edit-books works!</p>
+<div class="container">
+  <h2 class="title">edit books</h2>
+  <hr/>
+  <button (click)="deleteAllBooks()">delete all books</button>
+  <button [routerLink]="'/admin/editBook'">add book</button>
+  <hr>
+  <h2>book</h2>
+  <input type="text" placeholder="search" (input)="filterBook($event)">
+  <div class="book" *ngFor="let book of books">
+    <p>book name: {{ book.name }}</p>
+    <p>author name: {{ book.author }}</p>
+    <p>category {{ book.category }}</p>
+    <p>price: {{ book.price }}</p>
+    <p *ngIf="book.discountByPrecent">discount by precent: {{ book.discountByPrecent}}</p>
+    <div class="edit-book-section">
+      <button (click)="editBook(book)">edit book</button>
+      <button (click)="deleteBook(book)">delete book</button>
+    </div>
+  </div>
+</div>
